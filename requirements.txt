@@ -1,0 +1,11 @@
+transformers
+datasets
+torch
+tqdm
+numpy
+requests
+python-dotenv
+flask
+sqlalchemy
+pymysql
+python-dotenv

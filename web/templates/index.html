@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>MindMusic {{EMOJI.star}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+
+    <div class="nav">
+        <div class="brand">
+            <img src="{{ url_for('static', filename='logo.png') }}"
+                 alt="Mood to Playlist Logo"
+                 class="app-logo">
+
+            <div>
+                <div class="title">MindMusic {{EMOJI.star}}</div>
+                <div class="subtitle">AI that listens to your emotions</div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <a class="btn btn-ghost" href="/history">History</a>
+        </div>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="flash">
+        {% for m in messages %}
+        <div>{{ m }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <div class="card">
+        <h2>Tell me how you feel</h2>
+        <p class="muted">Example: <i>I feel anxious but hopeful. Need focus for study.</i></p>
+
+        <form class="form" method="POST" action="/generate">
+            <textarea name="prompt" placeholder="Type your mood + goal..."></textarea>
+
+            <div class="actions">
+                <button class="btn-primary" type="submit">Generate playlist</button>
+                <a class="btn btn-ghost" href="/history">View saved runs</a>
+            </div>
+        </form>
+
+        <div class="footer small">
+            <div>Crafted by AI, guided by your mood {{EMOJI.headphones}} {{EMOJI.orange}}</div>
+            <div>Describe how you feel and get a playlist of soundtracks to suit your mood. {{EMOJI.notes}} {{EMOJI.sparkle}}</div>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

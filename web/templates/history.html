@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+
+    <div class="nav">
+        <div class="brand">
+            <div class="brand">
+                <img src="{{ url_for('static', filename='logo.png') }}"
+                     alt="Mood to Playlist Logo"
+                     class="app-logo">
+
+                <div>
+                    <div class="title">Mood → Playlist</div>
+                    <div class="subtitle">GPT-2 playlist curator + Spotify search</div>
+                </div>
+            </div>
+
+            <div>
+                <div class="title">Saved history</div>
+                <div class="subtitle">Your previous playlist generations</div>
+            </div>
+        </div>
+        <div class="actions">
+            <a class="btn btn-ghost" href="/">New prompt</a>
+        </div>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="flash">
+        {% for m in messages %}
+        <div>{{ m }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <div class="card">
+        <h2>Recent runs</h2>
+        <p class="muted">Click a title to open the saved results.</p>
+
+        {% if not items %}
+        <p class="muted">No saved runs yet.</p>
+        {% else %}
+        <table class="table">
+            <tr>
+                <th>Title</th>
+                <th>Tags</th>
+                <th>Created</th>
+            </tr>
+            {% for it in items %}
+            <tr>
+                <td><a href="/history/{{ it.id }}">{{ it.title }}</a></td>
+                <td>
+                    <div class="pills">
+                        {% for tag in it.tags %}
+                        <span class="pill">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </td>
+                <td class="small">{{ it.created_at }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+
+        <div class="actions" style="margin-top:14px;">
+            <a class="btn btn-ghost" href="/">Back</a>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
