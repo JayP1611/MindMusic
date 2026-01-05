@@ -20,3 +20,8 @@ venv/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+
+# Documentation images (local only)
+Project repo structure.png
+Web Dev structure.png
+
