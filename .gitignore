@@ -25,3 +25,7 @@ __pycache__/
 Project repo structure.png
 Web Dev structure.png
 
+# ---- Data & model artifacts (don’t push) ----
+data/
+models/
+
