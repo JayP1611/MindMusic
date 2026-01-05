@@ -1,0 +1,22 @@
+# ---- Environment / secrets ----
+.env
+
+# ---- Virtual environments ----
+.venv/
+venv/
+
+# ---- IDE ----
+.idea/
+
+# ---- Videos / recordings ----
+*.mp4
+!MindMusic.mp4
+
+
+# ---- Images used only for documentation (optional) ----
+# *.png
+
+# ---- Python cache ----
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
