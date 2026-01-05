@@ -101,8 +101,8 @@ python web/app.py
 Open: http://127.0.0.1:5000
 
 👤 Author
-Jay Pawar
+Jay Pawar 
 Master of Data Science — Deakin University
-Interests: NLP, Machine Learning, AI Systems, Data Engineering
+Interests: Data Science, Machine Learning, Data Analytics, API Development, Database Management, Mathematics and Statistics for AI, AI Systems, Data Engineering
 
 ⭐ If you like this project, feel free to star the repository!
